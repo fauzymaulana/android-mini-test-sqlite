@@ -14,6 +14,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="10dp"
         android:textStyle="bold"
+        android:textSize="16sp"
         android:text="Daftar Repositori Google"
         app:layout_constraintTop_toTopOf="parent"/>
 

@@ -46,7 +46,7 @@ mapbox = "10.14.1"
 insetter = "0.6.0"
 picasso = "2.71828"
 rxJava = "2.2.21"
-rxAndroid = "3.0.0"
+rxAndroid = "2.1.1"
 rxAdapter = "2.9.0"
 rxKotlin = "3.0.1"
 viewPager = "1.0.0"
@@ -127,7 +127,7 @@ retrofit-scalars-converter = { module = "com.squareup.retrofit2:converter-scalar
 # Rx
 rx-adapter = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "rxAdapter" }
 rx-java = { module = "io.reactivex.rxjava2:rxjava", version.ref = "rxJava" }
-rx-android = { module = "io.reactivex.rxjava3:rxandroid", version.ref = "rxAndroid" }
+rx-android = { module = "io.reactivex.rxjava2:rxandroid", version.ref = "rxAndroid" }
 rx-kotlin = {module = "io.reactivex.rxjava3:rxkotlin", version.ref= "rxKotlin" }
 
 #Preference

@@ -5,13 +5,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.jetbrains.kotlin.kapt)
+    id("kotlin-android")
+    id("kotlin-parcelize")
 }
 
 val localProperties = Properties()
 localProperties.load(FileInputStream(rootProject.file("local.properties")))
 
 val STRING = "String"
-val TIMEOUT: Long = localProperties.getProperty("TIMEOUT")?.toLongOrNull() ?: 0L
+val TIMEOUT: Long = localProperties.getProperty("TIMEOUT")?.toLong() ?: 0L
 val BASE_URL = localProperties.getProperty("BASE_URL")?.let { "\"$it\"" } ?: "\"Define your URL!\""
 val API_KEY_GITHUB = localProperties.getProperty("API_KEY_GITHUB")?.let { "\"$it\"" } ?: "\"Define your API KEY Github!\""
 
@@ -28,7 +30,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("Long", "TIMEOUT", TIMEOUT.toString())
+        buildConfigField("long", "TIMEOUT", TIMEOUT.toString())
         buildConfigField(STRING, "BASE_URL", BASE_URL)
         buildConfigField(STRING, "API_KEY_GITHUB", API_KEY_GITHUB)
     }
@@ -47,7 +49,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -73,6 +75,8 @@ dependencies {
     implementation(libs.rx.adapter)
     implementation(libs.okhttp)
     implementation(libs.glide.img)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
     kapt(libs.glide.compiler)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
